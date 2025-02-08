@@ -65,10 +65,14 @@ if instr(command$, "help") >= 1 then
   if instr(help$, "talk") >= 1 then
       print "What would you want to talk about?" : print "Use simple keywords like 'sad', 'happy', 'mad', 'nervous', or 'hurt'."
       input "talk >> ";talk$
+      REM the talk if statements
+      if instr(talk$, "sad") >= 1 then
+         print "aww.. I'm really sad you're feeling sad :c If you really need to talk to someone, plz dm me." : print "my discord: https://discord.com/users/1127731486485921813"
+      elseif instr(talk$, "hurt") and instr(talk, "myself") >= 1 then
+          print ":ccccc you need to talk to someone that you trust :("
   elseif instr(help$, "commands") >= 1 then
       print "not good yet so there's not really anything yet. Sorry :c"
   else 
       print "there's no help command called that!"
   end if
 end if
-     
