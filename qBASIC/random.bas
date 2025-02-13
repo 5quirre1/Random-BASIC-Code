@@ -1,29 +1,27 @@
-Screen 12
-Color _rgb(Rnd * 255, Rnd * 255, Rnd * 255)
-Dim As Single X, Y, Xp, Yp 
-Dim As Integer n, i
-
+SCREEN 12
+RANDOMIZE TIMER
+DIM X, Y, Xp, Yp
+DIM n, i
 
 X = 0
 Y = 0
 
-For i = 1 To 100000
-    n = Rnd * 100
+FOR i = 1 TO 100000
+    n = INT(RND * 100)
     
-    If n < 1 Then
-        Xp = X + (Rnd - 0.5) * 1
-        Yp = Y + (Rnd - 0.5) * 1
-    ElseIf n >= 1 And n <= 25 Then
-        Xp = X + (Rnd - 0.5) * 3
-        Yp = Y + (Rnd - 0.5) * 3
-    ElseIf n > 25 And n <= 50 Then
-        Xp = X + (Rnd - 0.5) * 5
-        Yp = Y + (Rnd - 0.5) * 5
-    Else
-        Xp = X + (Rnd - 0.5) * 10
-        Yp = Y + (Rnd - 0.5) * 10
-    End If
-
+    IF n < 1 THEN
+        Xp = X + (RND - 0.5) * 1
+        Yp = Y + (RND - 0.5) * 1
+    ELSEIF n >= 1 AND n <= 25 THEN
+        Xp = X + (RND - 0.5) * 3
+        Yp = Y + (RND - 0.5) * 3
+    ELSEIF n > 25 AND n <= 50 THEN
+        Xp = X + (RND - 0.5) * 5
+        Yp = Y + (RND - 0.5) * 5
+    ELSE
+        Xp = X + (RND - 0.5) * 10
+        Yp = Y + (RND - 0.5) * 10
+    END IF
 
     X = Xp
     Y = Yp
@@ -31,5 +29,5 @@ For i = 1 To 100000
     xx = X * 45
     yy = Y * 45 - 225
 
-    Pset (xx + 320, -yy + 240)
-Next i
+    PSET (xx + 320, -yy + 240)
+NEXT i
