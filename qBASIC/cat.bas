@@ -1,83 +1,71 @@
 CLS
 SCREEN 0
 
-DIM cat1$(5)
-cat1$(0) = " /\_/\  "
-cat1$(1) = "( o.o ) "
-cat1$(2) = " > ^ <  "
+DIM cat$(3, 3)
+cat$(0, 0) = " /\_/\  "
+cat$(0, 1) = "( o.o ) "
+cat$(0, 2) = " > ^ <  "
 
-DIM cat2$(5)
-cat2$(0) = " /\_/\  "
-cat2$(1) = "( -.- ) "
-cat2$(2) = " > ^ <  "
+cat$(1, 0) = " /\_/\  "
+cat$(1, 1) = "( -.- ) "
+cat$(1, 2) = " > ^ <  "
 
-DIM cat3$(5)
-cat3$(0) = " /\_/\  "
-cat3$(1) = "( o.O ) "
-cat3$(2) = " > ^ <  "
-
+cat$(2, 0) = " /\_/\  "
+cat$(2, 1) = "( o.O ) "
+cat$(2, 2) = " > ^ <  "
 
 LEFT_LIMIT = 1
 RIGHT_LIMIT = 50
 
-FOR blink = 1 TO 2
+
+FOR blink = 1 TO 4
     CLS
     FOR i = 0 TO 2
         LOCATE 10 + i, LEFT_LIMIT
-        IF blink MOD 2 = 0 THEN
-            PRINT cat2$(i)
-        ELSE
-            PRINT cat1$(i)
-        END IF
+        PRINT cat$((blink MOD 2), i)
     NEXT i
     SLEEP 1
 NEXT blink
 
+
 CLS
 FOR i = 0 TO 2
     LOCATE 10 + i, LEFT_LIMIT
-    PRINT cat3$(i)
+    PRINT cat$(2, i)
 NEXT i
 SLEEP 1
 
 DO
+    
     FOR x = LEFT_LIMIT TO RIGHT_LIMIT
         CLS
         FOR i = 0 TO 2
             LOCATE 10 + i, x
-            IF x MOD 2 = 0 THEN
-                PRINT cat1$(i)
-            ELSE
-                PRINT cat2$(i)
-            END IF
+            PRINT cat$(x MOD 2, i)
         NEXT i
-        SLEEP 1
+        SLEEP 0.8
+        IF INKEY$ <> "" THEN END
     NEXT x
 
+    
     FOR x = RIGHT_LIMIT TO LEFT_LIMIT STEP -1
         CLS
         FOR i = 0 TO 2
             LOCATE 10 + i, x
-            IF x MOD 2 = 0 THEN
-                PRINT cat1$(i)
-            ELSE
-                PRINT cat3$(i)
-            END IF
+            PRINT cat$((x MOD 2) + 1, i)
         NEXT i
-        SLEEP 1
+        SLEEP 0.8
+        IF INKEY$ <> "" THEN END
     NEXT x
+
+    
     LOCATE 9, 5
     PRINT "meow!"
-    FOR freq = 700 TO 900 STEP 50
+    FOR freq = 700 TO 1000 STEP 60
         SOUND freq, 2
     NEXT freq
-    FOR freq = 900 TO 700 STEP -50
+    FOR freq = 1000 TO 700 STEP -60
         SOUND freq, 2
     NEXT freq
 
-
-
-LOOP UNTIL INKEY$ <> ""
-
-END
-
+LOOP
