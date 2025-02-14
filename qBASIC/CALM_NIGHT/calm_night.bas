@@ -17,7 +17,6 @@ moonY = 100
 moonRadius = 40
 soundHandle& = _SndOpen("greg.wav", "VOL")
 
-' Play the sound
 _SndPlay soundHandle&
 
 Do
