@@ -1,4 +1,4 @@
-' This is a QB64 program github..
+' THIS IS QBASIC GITHUB. THIS IS NOT A VBA PROGRAM.
 
 Screen 12
 Randomize Timer
